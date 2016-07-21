@@ -1,12 +1,27 @@
-module.exports = function(app){
-	app.post('/dummies/:test', function(req, res){
-		
-		// I'm testing the info that I'm getting from my dummy Factory
-		// I console.log the body and the params just to make sure that it's
-		// going through 
+var mongooses = require('./../controllers/mongooses.js');
 
-		console.log(req.body);
-		console.log(req.params.test)
+module.exports = function(app){
+	app.post('/mongoose', function(req, res){
+		console.log("Made it to the post /mongoose route");
+		mongooses.createMongoose(req,res);
+		// mongooseController.getMongooses(req, res);
+	})
+
+	app.post('/updateMongoose', function(req, res){
+		console.log("Made it to the post /updateMongoose route");
+		mongooses.updateMongoose(req,res);
+		// mongooseController.getMongooses(req, res);
+	})
+
+	app.get('/mongooses', function(req, res){
+		console.log("Made it to the get /mongoose route");
+		mongooses.getMongooses(req,res);
+		// mongooseController.getMongooses(req, res);
+	})
+
+	app.get('/show/:id', function(req, res){
+		console.log("Made it to the get /mongoose route");
+		mongooses.getMongoose(req,res);
 		// mongooseController.getMongooses(req, res);
 	})
 }

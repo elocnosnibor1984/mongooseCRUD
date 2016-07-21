@@ -1,1 +1,15 @@
 <h1>This is my index partial</h1>
+
+<form>
+	Name: <input type="text" name="" ng-model="newMongoose.name">
+	Weight: <input type="text" name="" ng-model="newMongoose.weight">
+	Color: <input type="text" name="" ng-model="newMongoose.color">
+	<input type="submit" name="submit" ng-click="createMongoose()">
+</form>
+
+<div ng-repeat="m in mongooses">
+	<h3><a href="#/show/{{m._id}}">{{m.name}}</a></h3>
+	<p>{{m.weight}}</p>
+	<p>{{m.color}}</p>
+	<p><a href="#/edit/{{m._id}}"><button>Edit</button></a></p>
+</div>
